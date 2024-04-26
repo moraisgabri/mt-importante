@@ -95,7 +95,6 @@
     }
 
     #no {
-      transition: 0.3s;
       position: absolute;
       justify-self: flex-end;
     }
@@ -119,30 +118,15 @@
           </button>
         </div>
       </div>
+
+      <span class="raleway" style="justify-self: flex-end; margin-top: 10%">
+        feito com amor e carinho por zegas
+      </span>
+
       <audio id="ID" autoplay loop>
         <source src="assets/audio/careless-whisper.mp3" />
       </audio>
     </div>
   </body>
-  <script>
-    function redirectTo() {
-      window.location.href = "https://www.youtube.com/watch?v=orWnzqBA63w";
-    }
-
-    function moveNoButton() {
-      const button = document.querySelector("#no");
-      const newX = Math.random() * (window.innerWidth - button.offsetWidth);
-      const newY = Math.random() * (window.innerHeight - button.offsetHeight);
-
-      button.style.left = newX + "px";
-      button.style.top = newY + "px";
-    }
-
-    function musicPlay() {
-      document.getElementById("ID").play();
-      document.removeEventListener("click", musicPlay);
-    }
-
-    document.addEventListener("click", musicPlay);
-  </script>
+  <script src="script.js"></script>
 </html>
