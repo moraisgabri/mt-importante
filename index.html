@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Por favorzinho?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    #heart {
+      position: relative;
+      width: 100px;
+      height: 90px;
+      margin-top: 10px;
+    }
+
+    #heart::before,
+    #heart::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 52px;
+      height: 80px;
+      border-radius: 50px 50px 0 0;
+      background: red;
+    }
+
+    #heart::before {
+      left: 50px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    #heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      width: 100%;
+      height: 100%;
+    }
+
+    .mainDiv {
+      width: 100%;
+      height: 100%;
+      background-color: burlywood;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button {
+      padding: 10px;
+      margin: 40px;
+      border: none;
+      border-radius: 5px;
+      background-color: white;
+      color: black;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 2em;
+    }
+
+    .raleway {
+      font-family: "Raleway", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 200, 300, 400, 500, 600, 700, 800, 900;
+      font-style: normal;
+    }
+
+    h3 {
+      font-size: 2em;
+    }
+
+    .buttonsWrapper {
+      display: flex;
+      flex-direction: row;
+      width: 400px;
+    }
+
+    #no {
+      transition: 0.3s;
+      position: absolute;
+      justify-self: flex-end;
+    }
+  </style>
+  <body style="width: 100%; height: 100%">
+    <div class="mainDiv">
+      <div id="heart"></div>
+
+      <h3 class="raleway">Boquetinho hoje? 🌹</h3>
+
+      <div class="buttonsWrapper">
+        <div>
+          <button id="yes" onclick="redirectTo()" class="raleway">
+            Sim 🥵
+          </button>
+        </div>
+        <div>
+          <button id="no" onmouseover="moveNoButton()" class="raleway">
+            Não 👿
+          </button>
+        </div>
+      </div>
+      <iframe
+        id="spotify"
+        style="border-radius: 12px; width: 20%"
+        src="https://open.spotify.com/embed/track/4jDmJ51x1o9NZB5Nxxc7gY?autoplay=true"
+        width="100%"
+        height="152"
+        frameborder="0"
+        allowfullscreen=""
+        onload="play()"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </body>
+  <script>
+    function redirectTo() {
+      window.location.href = "https://www.youtube.com/watch?v=orWnzqBA63w";
+    }
+
+    function moveNoButton() {
+      const button = document.querySelector("#no");
+      const newX = Math.random() * (window.innerWidth - button.offsetWidth);
+      const newY = Math.random() * (window.innerHeight - button.offsetHeight);
+
+      button.style.left = newX + "px";
+      button.style.top = newY + "px";
+    }
+
+    function play() {
+      var iframe = document.getElementById("spotify");
+
+      var innerDoc = iframe.contentWindow.document;
+
+      console.log({ innerDoc });
+
+      const buttao = innerDoc.getElementsByClassName(
+        "Button-sc-1dqy6lx-0 bTzpio"
+      );
+
+      console.log(buttao);
+    }
+  </script>
+</html>
