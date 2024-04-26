@@ -2,8 +2,9 @@ function redirectTo() {
   window.location.href = "https://www.youtube.com/watch?v=orWnzqBA63w";
 }
 
+const button = document.querySelector("#no");
+
 function moveNoButton() {
-  const button = document.querySelector("#no");
   const newX = Math.random() * (window.innerWidth - button.offsetWidth);
   const newY = Math.random() * (window.innerHeight - button.offsetHeight);
 
@@ -12,7 +13,7 @@ function moveNoButton() {
   button.style.top = newY + "px";
 }
 
-document.addEventListener("touchstart", moveNoButton);
+button.addEventListener("touchstart", moveNoButton);
 
 function musicPlay() {
   document.getElementById("ID").play();
