@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
   </head>
   <style>
     #heart {
@@ -17,6 +18,7 @@
       width: 100px;
       height: 90px;
       margin-top: 10px;
+      cursor: pointer;
     }
 
     #heart::before,
@@ -101,8 +103,9 @@
   <body style="width: 100%; height: 100%">
     <div class="mainDiv">
       <div id="heart"></div>
+      <span class="raleway">clique-me! (🔊)</span>
 
-      <h3 class="raleway">Datezinho hoje? 🌹</h3>
+      <h3 class="raleway">Datezinho hoje? 😏🌹</h3>
 
       <div class="buttonsWrapper">
         <div>
@@ -116,18 +119,9 @@
           </button>
         </div>
       </div>
-      <iframe
-        id="spotify"
-        style="border-radius: 12px; width: 20%"
-        src="https://open.spotify.com/embed/track/4jDmJ51x1o9NZB5Nxxc7gY?autoplay=true"
-        width="100%"
-        height="152"
-        frameborder="0"
-        allowfullscreen=""
-        onload="play()"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-      ></iframe>
+      <audio id="ID" autoplay loop>
+        <source src="assets/audio/careless-whisper.mp3" />
+      </audio>
     </div>
   </body>
   <script>
@@ -144,18 +138,11 @@
       button.style.top = newY + "px";
     }
 
-    function play() {
-      var iframe = document.getElementById("spotify");
-
-      var innerDoc = iframe.contentWindow.document;
-
-      console.log({ innerDoc });
-
-      const buttao = innerDoc.getElementsByClassName(
-        "Button-sc-1dqy6lx-0 bTzpio"
-      );
-
-      console.log(buttao);
+    function musicPlay() {
+      document.getElementById("ID").play();
+      document.removeEventListener("click", musicPlay);
     }
+
+    document.addEventListener("click", musicPlay);
   </script>
 </html>

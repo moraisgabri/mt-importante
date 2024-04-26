@@ -1,2 +1,5 @@
 # mt-importante
-yamete kudasai
+
+## yamete kudasai `*--*`
+
+_o omi quer espalhar o amor_
